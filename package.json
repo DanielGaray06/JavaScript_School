@@ -1,0 +1,30 @@
+{
+  "name": "educational-programming",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plataforma educativa interactiva para aprender estructuras de programación en JavaScript ejecutando código en el navegador.",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n CSS,WEB -c cyan,magenta \"pnpm run dev:css\" \"pnpm run dev:web\"",
+    "dev:css": "tailwindcss --config ./tailwind.config.cjs -i ./assets/css/styles.css -o ./assets/css/build.css --watch",
+    "dev:web": "http-server . -p 5173 -c-1",
+    "build": "pnpm run build:css",
+    "build:css": "tailwindcss --config ./tailwind.config.cjs -i ./assets/css/styles.css -o ./assets/css/build.css --minify",
+    "start": "pnpm run build && http-server . -p 5173 -c-1",
+    "test": "node --test tests/exercises.test.js"
+  },
+  "keywords": [
+    "javascript",
+    "educacion",
+    "tailwindcss",
+    "programacion",
+    "async-await"
+  ],
+  "author": "Daniel Garay",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "http-server": "^14.1.1",
+    "tailwindcss": "^3.4.17"
+  }
+}

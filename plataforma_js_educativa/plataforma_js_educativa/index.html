@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aprende las estructuras fundamentales de JavaScript mediante ejercicios interactivos.">
+  <title>CodeLab — Aprende JavaScript</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { sans: ['DM Sans', 'sans-serif'], mono: ['Fira Code', 'monospace'] },
+        colors: { ink: '#0b1020', panel: '#111a2e', line: '#26334d', accent: '#7c9cff', mint: '#52e0bd' }
+      }}
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body class="bg-ink text-slate-100 font-sans min-h-screen">
+  <header class="sticky top-0 z-30 border-b border-line/80 bg-ink/90 backdrop-blur-xl">
+    <nav class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
+      <a href="#inicio" class="flex items-center gap-3 font-bold tracking-tight text-lg">
+        <span class="brand-mark">&lt;/&gt;</span><span>Code<span class="text-accent">Lab</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm text-slate-300">
+        <a class="nav-link" href="#inicio">Inicio</a>
+        <a class="nav-link" href="#ejercicios">Ejercicios</a>
+        <a class="nav-link" href="#conceptos">Conceptos</a>
+        <a class="nav-link" href="#proyecto">Proyecto</a>
+      </div>
+      <button id="mobile-menu-button" class="md:hidden rounded-lg border border-line px-3 py-2 text-sm" aria-expanded="false" aria-controls="mobile-menu">Menú</button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden px-5 pb-4 space-y-3 text-sm">
+      <a class="block nav-link" href="#inicio">Inicio</a><a class="block nav-link" href="#ejercicios">Ejercicios</a>
+      <a class="block nav-link" href="#conceptos">Conceptos</a><a class="block nav-link" href="#proyecto">Proyecto</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero-grid max-w-7xl mx-auto px-5 pt-16 pb-20 md:pt-24 md:pb-28">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs text-blue-200 mb-6">
+          <span class="h-2 w-2 rounded-full bg-mint"></span> LABORATORIO INTERACTIVO DE JAVASCRIPT
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight tracking-tight">Aprende programación <span class="gradient-text">ejecutando código.</span></h1>
+        <p class="mt-6 max-w-2xl text-slate-400 text-lg leading-relaxed">Explora las estructuras fundamentales de JavaScript mediante ejercicios prácticos, entradas personalizadas y explicaciones paso a paso.</p>
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a href="#ejercicios" class="primary-button">Explorar ejercicios <span aria-hidden="true">→</span></a>
+          <a href="#conceptos" class="secondary-button">Ver conceptos</a>
+        </div>
+        <div class="mt-12 flex flex-wrap gap-8 text-sm text-slate-400">
+          <div><strong class="block text-2xl text-white">08</strong> ejercicios</div>
+          <div><strong class="block text-2xl text-white">100%</strong> JavaScript nativo</div>
+          <div><strong class="block text-2xl text-white">01</strong> objetivo: aprender</div>
+        </div>
+      </div>
+      <div class="code-visual hidden lg:block" aria-label="Ejemplo visual de código JavaScript">
+        <div class="flex items-center gap-2 border-b border-line px-5 py-4">
+          <i class="window-dot bg-rose-400"></i><i class="window-dot bg-amber-300"></i><i class="window-dot bg-emerald-400"></i>
+          <span class="ml-3 text-xs text-slate-500 font-mono">primer-programa.js</span>
+        </div>
+        <pre class="p-6 text-sm leading-8 font-mono overflow-hidden"><span class="text-slate-500">01</span> <span class="text-fuchsia-300">const</span> <span class="text-sky-200">aprender</span> = <span class="text-amber-200">true</span>;
+<span class="text-slate-500">02</span>
+<span class="text-slate-500">03</span> <span class="text-fuchsia-300">if</span> (aprender) {
+<span class="text-slate-500">04</span>   <span class="text-emerald-300">console</span>.log(
+<span class="text-slate-500">05</span>     <span class="text-amber-200">"¡Vamos a programar!"</span>
+<span class="text-slate-500">06</span>   );
+<span class="text-slate-500">07</span> }
+<span class="text-slate-500">08</span>
+<span class="text-slate-500">09</span> <span class="text-slate-500">// Tu siguiente paso comienza aquí.</span></pre>
+        <div class="border-t border-line px-5 py-3 flex items-center justify-between text-xs text-slate-500"><span>JavaScript ES6+</span><span class="text-mint">● listo para aprender</span></div>
+      </div>
+    </section>
+
+    <section id="ejercicios" class="max-w-7xl mx-auto px-5 py-14">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div><p class="eyebrow">RUTA DE APRENDIZAJE</p><h2 class="section-title">Selecciona un ejercicio</h2><p class="text-slate-400 mt-2">Elige una estructura para abrir su laboratorio interactivo.</p></div>
+        <div class="text-sm text-slate-500"><span id="exercise-count">8</span> ejercicios disponibles</div>
+      </div>
+      <div id="exercise-grid" class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4"></div>
+    </section>
+
+    <section id="laboratorio" class="max-w-7xl mx-auto px-5 py-12">
+      <div class="section-divider mb-10"></div>
+      <div id="exercise-workspace" class="hidden">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <aside class="lg:w-1/3 space-y-5">
+            <div class="panel-card p-6">
+              <p class="eyebrow" id="exercise-number">EJERCICIO 01</p>
+              <h2 id="exercise-title" class="text-2xl font-bold mt-2"></h2>
+              <p id="exercise-description" class="text-slate-400 mt-3 leading-relaxed"></p>
+              <div class="mt-5"><span class="tag" id="exercise-category"></span></div>
+            </div>
+            <div class="panel-card p-6">
+              <h3 class="font-semibold mb-3">Concepto teórico</h3>
+              <p id="exercise-theory" class="text-sm text-slate-400 leading-relaxed"></p>
+            </div>
+            <div class="panel-card p-6">
+              <h3 class="font-semibold mb-3">Objetivo de aprendizaje</h3>
+              <p id="exercise-objective" class="text-sm text-slate-400 leading-relaxed"></p>
+            </div>
+            <div class="panel-card p-6">
+              <h3 class="font-semibold mb-3">Enunciado</h3>
+              <p id="exercise-statement" class="text-sm text-slate-400 leading-relaxed"></p>
+            </div>
+          </aside>
+
+          <div class="lg:w-2/3 space-y-5 min-w-0">
+            <section class="panel-card p-6">
+              <div class="flex items-center justify-between gap-3 mb-5"><h3 class="font-semibold">1. Ingresa los datos</h3><span class="text-xs text-slate-500">Formulario interactivo</span></div>
+              <form id="exercise-form" class="grid sm:grid-cols-2 gap-4" novalidate></form>
+              <div id="validation-message" class="hidden mt-4 rounded-lg border border-rose-400/30 bg-rose-400/10 p-3 text-sm text-rose-200" role="alert"></div>
+            </section>
+
+            <section class="panel-card overflow-hidden">
+              <div class="flex items-center justify-between px-6 py-4 border-b border-line"><h3 class="font-semibold">2. Código JavaScript</h3><span class="text-xs text-slate-500 font-mono">ES6+</span></div>
+              <pre class="code-block"><code id="exercise-code"></code></pre>
+              <div class="p-5 border-t border-line flex flex-wrap items-center justify-between gap-3">
+                <p class="text-xs text-slate-500">El código se ejecuta mediante una función JavaScript del ejercicio.</p>
+                <button id="run-button" class="primary-button" type="button">▶ Ejecutar ejercicio</button>
+              </div>
+            </section>
+
+            <section class="panel-card p-6">
+              <div class="flex items-center justify-between mb-4"><h3 class="font-semibold">3. Resultado</h3><span class="text-xs text-slate-500">Salida del programa</span></div>
+              <div id="result-output" class="result-output" aria-live="polite">Completa los datos y ejecuta el ejercicio para ver el resultado.</div>
+            </section>
+            <section class="panel-card p-6">
+              <h3 class="font-semibold mb-4">4. Explicación paso a paso</h3>
+              <ol id="step-explanation" class="space-y-3 text-sm text-slate-400"><li>La explicación aparecerá después de ejecutar el ejercicio.</li></ol>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div id="empty-workspace" class="panel-card p-10 text-center">
+        <div class="text-4xl mb-4">⌘</div><h3 class="text-xl font-semibold">Tu espacio de práctica</h3>
+        <p class="text-slate-400 mt-2">Selecciona cualquiera de los ocho ejercicios para comenzar.</p>
+      </div>
+    </section>
+
+    <section id="conceptos" class="max-w-7xl mx-auto px-5 py-16">
+      <div class="section-divider mb-10"></div>
+      <p class="eyebrow">FUNDAMENTOS</p><h2 class="section-title">¿Qué vas a aprender?</h2>
+      <div class="grid md:grid-cols-3 gap-4 mt-7">
+        <article class="panel-card p-6"><div class="feature-icon">↘</div><h3 class="font-semibold mt-4">Flujo de ejecución</h3><p class="text-sm text-slate-400 mt-2 leading-relaxed">Comprende cómo se ejecutan las instrucciones, cómo se toman decisiones y cómo se repiten procesos.</p></article>
+        <article class="panel-card p-6"><div class="feature-icon">ƒ</div><h3 class="font-semibold mt-4">Funciones</h3><p class="text-sm text-slate-400 mt-2 leading-relaxed">Aprende a dividir un problema en funciones reutilizables, síncronas y asíncronas.</p></article>
+        <article class="panel-card p-6"><div class="feature-icon">⏱</div><h3 class="font-semibold mt-4">Asincronía</h3><p class="text-sm text-slate-400 mt-2 leading-relaxed">Observa cómo JavaScript gestiona tareas que terminan en momentos diferentes.</p></article>
+      </div>
+    </section>
+
+    <section id="proyecto" class="max-w-7xl mx-auto px-5 pb-20">
+      <div class="panel-card p-7 md:p-9 flex flex-col md:flex-row md:items-center justify-between gap-5">
+        <div><p class="eyebrow">ACERCA DEL PROYECTO</p><h2 class="text-2xl font-bold mt-2">Aprender haciendo.</h2><p class="text-slate-400 mt-2 max-w-2xl text-sm leading-relaxed">CodeLab es una plataforma educativa de práctica construida con HTML5, Tailwind CSS y JavaScript nativo. Los ejemplos son didácticos y se ejecutan localmente en el navegador.</p></div>
+        <a href="#ejercicios" class="secondary-button shrink-0">Volver a ejercicios ↑</a>
+      </div>
+    </section>
+  </main>
+  <footer class="border-t border-line py-6 text-center text-xs text-slate-500">CodeLab · Plataforma educativa de JavaScript · HTML, Tailwind CSS y JavaScript nativo</footer>
+</body>
+</html>
